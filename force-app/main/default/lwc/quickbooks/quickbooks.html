@@ -1,0 +1,31 @@
+    <template>
+        <p>{mapData}</p>
+        <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    columns={columns}>
+            </lightning-datatable>
+        </div> 
+    <!-- 
+        <template for:each={mapData} for:item="keyValue">
+            <tr key={keyValue.key}>
+                <th scope="col">
+                    <div>{keyValue.key}</div>
+                </th>
+                <th scope="col">
+                    <div>{keyValue.value}</div>
+                </th>
+            </tr>
+        </template>
+    -->
+        <lightning-card title="HelloForEach" icon-name="custom:custom14">
+            <ul class="slds-m-around_medium">
+                <template for:each={mapData} for:item="customer">
+                    <li key={customer.Id}>
+                        {customer.DisplayName}, {customer.MiddleName}
+                    </li>
+                </template>
+            </ul>
+        </lightning-card>
+    </template>
